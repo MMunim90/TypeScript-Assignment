@@ -6,6 +6,10 @@ const multiplyValue = (value: number, multiplier?: number): number => {
   return value * 2;
 };
 
+
+
+
+
 type dataType = string | number | boolean;
 
 const processInput = (value: dataType): dataType => {
@@ -21,6 +25,11 @@ const processInput = (value: dataType): dataType => {
   }
 };
 
+
+
+
+
+
 const formatCoordinate = ([latitude, longitude, locationName]: readonly [
   latitude: number,
   longitude: number,
@@ -29,9 +38,18 @@ const formatCoordinate = ([latitude, longitude, locationName]: readonly [
   return `Location: ${locationName} (${latitude}, ${longitude})`;
 };
 
+
+
+
+
+
 const concatenateArrays = <T>(...array: T[][]): T[] => {
   return array.reduce((arr, curr) => [...arr, ...curr], []);
 };
+
+
+
+
 
 interface Course {
   title: string;
@@ -53,7 +71,19 @@ const getPopularCourses = (
   return filteredCourse;
 };
 
-const pluckValues = () => {};
+
+
+
+
+const pluckValues = <T, K extends keyof T> (items: T[], key: K) : T[K][] => {
+    const newArray = items.map((item) => item[key]);
+    return newArray;
+};
+
+
+
+
+
 
 class Employee {
   constructor(
@@ -94,4 +124,5 @@ const validateAgeAsync = async (age: number): Promise<string> => {
   }
   throw new Error("Access Denied: Must be 18 or older");
 };
+
 
