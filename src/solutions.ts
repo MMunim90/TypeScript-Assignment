@@ -33,3 +33,7 @@ const formatCoordinate = ([latitude, longitude, locationName]: readonly [latitud
 
 
 
+
+const concatenateArrays = <T> (...array: T[][]):T[] => {
+    return array.reduce((arr, curr) => [...arr, ...curr], []);
+}
