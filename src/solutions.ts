@@ -7,3 +7,23 @@ const multiplyValue = (value: number, multiplier?: number) : number => {
 };
 
 
+
+type dataType = string | number | boolean;
+
+const processInput = (value: dataType) : dataType =>{
+    if(typeof(value) == "string"){
+        return value.trim().toLowerCase();
+    }
+    else if(typeof(value) == "number"){
+        return value * 10;
+    }
+    else{
+        if(value){
+            return "Active";
+        }
+        return "Inactive";
+    }
+}
+
+
+
