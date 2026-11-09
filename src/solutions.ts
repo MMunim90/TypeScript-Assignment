@@ -37,3 +37,28 @@ const formatCoordinate = ([latitude, longitude, locationName]: readonly [latitud
 const concatenateArrays = <T> (...array: T[][]):T[] => {
     return array.reduce((arr, curr) => [...arr, ...curr], []);
 }
+
+
+
+
+
+interface Course {
+    title: string;
+    students: number;
+    isPublished: boolean;
+};
+
+const getPopularCourses = (courseArray: Course[], minStudents: number) => {
+    const filteredCourse : Course[] = [];
+    for (let course of courseArray) {
+        if(course.isPublished == true && course.students >= minStudents){
+            filteredCourse.push(course)
+        }
+    }
+
+    return filteredCourse;
+}
+
+
+
+
