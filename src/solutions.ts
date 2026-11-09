@@ -27,3 +27,9 @@ const processInput = (value: dataType) : dataType =>{
 
 
 
+const formatCoordinate = ([latitude, longitude, locationName]: readonly [latitude: number, longitude:number, locationName: string]) => {
+    return `Location: ${locationName} (${latitude}, ${longitude})`;
+}
+
+
+
