@@ -1,4 +1,4 @@
-const multiplyValue = (value: number, multiplier?: number) : number => {
+const multiplyValue = (value: number, multiplier?: number): number => {
   if (multiplier || multiplier == 0) {
     return value * multiplier;
   }
@@ -6,71 +6,54 @@ const multiplyValue = (value: number, multiplier?: number) : number => {
   return value * 2;
 };
 
-
-
 type dataType = string | number | boolean;
 
-const processInput = (value: dataType) : dataType =>{
-    if(typeof(value) == "string"){
-        return value.trim().toLowerCase();
+const processInput = (value: dataType): dataType => {
+  if (typeof value == "string") {
+    return value.trim().toLowerCase();
+  } else if (typeof value == "number") {
+    return value * 10;
+  } else {
+    if (value) {
+      return "Active";
     }
-    else if(typeof(value) == "number"){
-        return value * 10;
-    }
-    else{
-        if(value){
-            return "Active";
-        }
-        return "Inactive";
-    }
-}
-
-
-
-const formatCoordinate = ([latitude, longitude, locationName]: readonly [latitude: number, longitude:number, locationName: string]) : string => {
-    return `Location: ${locationName} (${latitude}, ${longitude})`;
-}
-
-
-
-
-
-const concatenateArrays = <T> (...array: T[][]):T[] => {
-    return array.reduce((arr, curr) => [...arr, ...curr], []);
-}
-
-
-
-
-
-interface Course {
-    title: string;
-    students: number;
-    isPublished: boolean;
+    return "Inactive";
+  }
 };
 
-const getPopularCourses = (courseArray: Course[], minStudents: number) : Course[] => {
-    const filteredCourse : Course[] = [];
-    for (let course of courseArray) {
-        if(course.isPublished == true && course.students >= minStudents){
-            filteredCourse.push(course)
-        }
+const formatCoordinate = ([latitude, longitude, locationName]: readonly [
+  latitude: number,
+  longitude: number,
+  locationName: string,
+]): string => {
+  return `Location: ${locationName} (${latitude}, ${longitude})`;
+};
+
+const concatenateArrays = <T>(...array: T[][]): T[] => {
+  return array.reduce((arr, curr) => [...arr, ...curr], []);
+};
+
+interface Course {
+  title: string;
+  students: number;
+  isPublished: boolean;
+}
+
+const getPopularCourses = (
+  courseArray: Course[],
+  minStudents: number,
+): Course[] => {
+  const filteredCourse: Course[] = [];
+  for (let course of courseArray) {
+    if (course.isPublished == true && course.students >= minStudents) {
+      filteredCourse.push(course);
     }
+  }
 
-    return filteredCourse;
-}
+  return filteredCourse;
+};
 
-
-
-
-
-const pluckValues = () => {
-
-}
-
-
-
-
+const pluckValues = () => {};
 
 class Employee {
   constructor(
@@ -93,10 +76,22 @@ class Manager extends Employee {
   }
 
   getRoleInfo(): string {
-    return `Manager of ${this.department}: ${this.name}`
+    return `Manager of ${this.department}: ${this.name}`;
   }
 }
 
 
 
+
+
+const validateAgeAsync = async (age: number): Promise<string> => {
+  if (age >= 18) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve("Access Granted");
+      }, 1000);
+    });
+  }
+  throw new Error("Access Denied: Must be 18 or older");
+};
 
