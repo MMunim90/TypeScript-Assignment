@@ -27,9 +27,10 @@ const processInput = (value: dataType) : dataType =>{
 
 
 
-const formatCoordinate = ([latitude, longitude, locationName]: readonly [latitude: number, longitude:number, locationName: string]) => {
+const formatCoordinate = ([latitude, longitude, locationName]: readonly [latitude: number, longitude:number, locationName: string]) : string => {
     return `Location: ${locationName} (${latitude}, ${longitude})`;
 }
+
 
 
 
@@ -48,7 +49,7 @@ interface Course {
     isPublished: boolean;
 };
 
-const getPopularCourses = (courseArray: Course[], minStudents: number) => {
+const getPopularCourses = (courseArray: Course[], minStudents: number) : Course[] => {
     const filteredCourse : Course[] = [];
     for (let course of courseArray) {
         if(course.isPublished == true && course.students >= minStudents){
@@ -57,6 +58,43 @@ const getPopularCourses = (courseArray: Course[], minStudents: number) => {
     }
 
     return filteredCourse;
+}
+
+
+
+
+
+const pluckValues = () => {
+
+}
+
+
+
+
+
+class Employee {
+  constructor(
+    protected name: string,
+    private baseSalary: number,
+  ) {}
+
+  getDetails(): string {
+    return `Employee: ${this.name}, Base Salary: ${this.baseSalary}`;
+  }
+}
+
+class Manager extends Employee {
+  constructor(
+    name: string,
+    baseSalary: number,
+    private department: string,
+  ) {
+    super(name, baseSalary);
+  }
+
+  getRoleInfo(): string {
+    return `Manager of ${this.department}: ${this.name}`
+  }
 }
 
 
