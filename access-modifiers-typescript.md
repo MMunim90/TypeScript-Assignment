@@ -8,7 +8,7 @@ Access modifiers are important features of Object-Oriented Programming (OOP) in 
 
 ### 1. Public
 
-The `public` modifier allows properties and methods to be accessed from anywhere, including inside and outside the class. It is the default access modifier in TypeScript.
+The `public` modifier allows properties and methods to be accessed from anywhere, including inside and outside the class. It is the default access modifier in TypeScript OOP.
 
 ```typescript
 class User {
@@ -21,7 +21,7 @@ console.log(user.name);
 
 ### 2. Private
 
-The `private` modifier restricts access to the class where the property or method is declared. It cannot be accessed directly outside that class or from subclasses.
+The `private` modifier cannot accessed directly outside the declaring class. And also it cannot accessed from  any subclasses/childclasses or any parts of the program.
 
 ```typescript
 class BankAccount {
@@ -31,7 +31,7 @@ class BankAccount {
 
 ### 3. Protected
 
-The `protected` modifier allows access inside the declaring class and its subclasses, but not from external objects.
+The `protected` modifier allows access inside the declaring class and its subclasses/childclasses. But cannot accessed from external objects or any parts of the program.
 
 ```typescript
 class Person {
@@ -47,7 +47,7 @@ class Student extends Person {
 
 ### 4. Readonly
 
-The `readonly` modifier prevents a property from being reassigned after initialization. It can be assigned during declaration or inside the constructor.
+The `readonly` modifier prevents a property from being reassigned or changed after initialization. It can be assigned during declaration or inside the constructor.
 
 ```typescript
 class Product {
